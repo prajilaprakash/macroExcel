@@ -78,8 +78,17 @@ namespace Tracker
 
         private void login_button_Click(object sender, RoutedEventArgs e)
         {
-            //dbmodule dbm = new dbmodule();
-            //dbm.getSingleValue();
+            String nameFromDB;
+            dbmodule dbm = new dbmodule();
+            nameFromDB = dbm.getSingleValue("SELECT user_name FROM tc_user_info WHERE user_name = '" + username_val.Text + "' AND user_pass = '" + password_val.Password.ToString() + "'");
+            if (nameFromDB==username_val.Text)
+            {
+                MessageBox.Show("Login Successful");
+            }
+            else
+            {
+                MessageBox.Show("Login Failed");
+            }
         }
     }
 }
