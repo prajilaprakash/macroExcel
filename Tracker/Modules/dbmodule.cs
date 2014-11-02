@@ -7,17 +7,26 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 
 
-namespace Tracker.Modules
+namespace Tracker
 {
     class dbmodule
     {
-        object connection;
-        string connectionString;
-
-        public void connectmysql()
+        public void getSingleValue()
         {
-            connectionString="";
-            connection = new MySqlConnection();
+            MySqlConnectionStringBuilder conString = new MySqlConnectionStringBuilder();
+            conString.Server = "localhost";
+            conString.Database = "tracker";
+            conString.UserID = "user";
+            conString.Password = "user";
+            MySqlConnection connection = new MySqlConnection();
+            try
+            {
+                connection.Open();
+            }
+            catch(MySqlException em)
+            {
+                Console.WriteLine(em.ToString());
+            }
         }
     }
 }
