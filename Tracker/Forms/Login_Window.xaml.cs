@@ -75,5 +75,11 @@ namespace Tracker
             cancel_toReset();
             login_check();
         }
+
+        private void login_button_Click(object sender, RoutedEventArgs e)
+        {
+            //dbmodule dbm = new dbmodule();
+            //dbm.getSingleValue();
+        }
     }
 }
