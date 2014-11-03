@@ -1,0 +1,39 @@
+﻿Fileds under '' are yet to be implemented
+
+TABLE "tc_user_info":
+	This table contains the login information of the user.
+	user_id		:	primarykey, integer, not null, (must be unique)
+					It contains the user id of the user
+	user_name	:	charecter (32), not null (must be unique)
+					it contains the user name which is used to login
+	user_pass	:	charecter (16), not null
+					it hold the password user uses to login
+					not encryptes as of now, as this version is just a prototyle.
+
+TABLE "tc_user_details":
+	user_name	:	primarykey, charecter (32), not null (must be unique)
+					it contains the user name which is used to login
+					should be mapped with "user_id" in "tc_user_info"
+	first_name	:	charecter (32), not null
+					Holds the first name of the user
+	last_name	:	charecter (32), not null
+					holds the last name of the user
+	designation	:	charecter (16), not null
+					holds the current designation of the user,
+					should be an existing value in "tc_app_params""
+	user_email	:	charecter (48), not null, unique
+					hold the communication mail id of the user
+					can be used in future to send mail alerts to user
+	user_status	:	charecter (1), not null
+					a - active (should be able to log in with this user_name)
+					d - deactivated/deleted (should not be able to log in)
+					p - pending approval (should not be able to login)
+	'start_date'
+	'last_logged_in'
+	'stop_date'
+
+TABLE "tc_app_params"
+	param_id	:	integer, primarykey, must be unique
+	param_type	:	charecter (16), not null
+	param_value	:	charecter (32), not null
+	param_power	:	integer
