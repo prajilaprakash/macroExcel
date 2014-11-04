@@ -28,6 +28,12 @@ TABLE "tc_user_details":
 					a - active (should be able to log in with this user_name)
 					d - deactivated/deleted (should not be able to log in)
 					p - pending approval (should not be able to login)
+					r - rejected (should not be able to log in)
+	user_ro		:	charecter (32),
+					contains the user name of the reporting office of the user.
+					should be another 'username' available in tc_user_details.
+	user_team	:	charecter (32)
+					contains the name if the team user belongs to.
 	'start_date'
 	'last_logged_in'
 	'stop_date'
