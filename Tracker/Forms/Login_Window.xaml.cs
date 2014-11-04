@@ -79,15 +79,38 @@ namespace Tracker
         private void login_button_Click(object sender, RoutedEventArgs e)
         {
             String nameFromDB;
+            String statusFromDB;
+            
             dbmodule dbm = new dbmodule();
+            
+            statusFromDB = dbm.getSingleValue("SELECT user_status FROM tc_user_info WHERE user_name = '" + username_val.Text + "'");
             nameFromDB = dbm.getSingleValue("SELECT user_name FROM tc_user_info WHERE user_name = '" + username_val.Text + "' AND user_pass = '" + password_val.Password.ToString() + "'");
+            
             if (nameFromDB==username_val.Text)
             {
-                MessageBox.Show("Login Successful");
+                if (statusFromDB == 'a')
+                {
+                  'login()
+                }
+                else if (statusFromDB == 'd')
+                {
+                  'dont login
+                  MessageBox.Show("Your account is deactivated, please contact your manager");
+                }
+                else if (statusFromDB == 'p')
+                {
+                  'dont login
+                  MessageBox.Show("Your account is not yer activated. Please contact your manager");
+                }
+                else if (statusFromDB == 'r')
+                {
+                  'dont login
+                  MessageBox.Show("Your request is rejected. Please contact your manager");
+                }
             }
             else
             {
-                MessageBox.Show("Login Failed");
+                MessageBox.Show("Failed to Log in. Please provice your correct username and password.\n Please request for access if you dont have and account yet.");
             }
         }
     }
