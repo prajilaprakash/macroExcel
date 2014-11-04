@@ -1,37 +1,42 @@
 ﻿<Window x:Class="Tracker.Forms.Login_Request_Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Login_Request_Window" Height="510.448" Width="495.522">
-    
+        Title="Login/Access Request" Height="570.448" Width="492.522"
+        Name="login_request_window" Closed="login_request_window_Closed">
+
     <Grid Background="#FF261E38">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="229*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
         <Label Content="FIRST NAME" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <Label Content="LAST NAME" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <Label Content="EMAIL" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <Label Content="DESIGNATION" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
-        <Laber Content="TEAM" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+        <Label Content="TEAM" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <Label Content="REPORTING TO" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
-        
+
         <Label Content="USERNAME" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <Label Content="PASSWORD" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
-        <Label Content="CONFIRM" HorizontalAlignment="Left" Margin="10,440,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
-        
-        
+        <Label Content="CONFIRM" HorizontalAlignment="Left" Margin="10,440,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" Grid.RowSpan="2"/>
+
+
         <!-- Details fields -->
         <TextBox Name="r_firstname_val" HorizontalAlignment="Left" Height="28" Margin="170,100,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please enter your First Name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1"/>
         <TextBox Name="r_lastname_val" HorizontalAlignment="Left" Height="28" Margin="170,140,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please provide your team name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1" />
         <TextBox Name="r_email_val" HorizontalAlignment="Left" Height="28" Margin="170,180,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please provide the username of the employee you are reporting to" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLines="1" />
-        
+
         <ComboBox Name="r_designation_val" HorizontalAlignment="Left" Margin="170,220,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18"/>
         <ComboBox Name="r_team_val" HorizontalAlignment="Left" Margin="170,260,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18"/>
         <ComboBox Name="r_ro_val" HorizontalAlignment="Left" Margin="170,300,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18"/>
         <!-- Username Field -->
         <TextBox Name="r_username_val" HorizontalAlignment="Left" Height="28" Margin="170,360,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please enter your First Name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1"/>
         <!-- Pawword Fileds -->
-        <PasswordBox Name="r_password_val" HorizontalAlignment="Left" Height="28" Margin="170,400,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" PasswordChanged="password_val_PasswordChanged" />
-        <PasswordBox Name="r_confirm_val" HorizontalAlignment="Left" Height="28" Margin="170,440,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" PasswordChanged="password_val_PasswordChanged" />
+        <PasswordBox Name="r_password_val" HorizontalAlignment="Left" Height="28" Margin="170,400,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16"  />
+        <PasswordBox Name="r_confirm_val" HorizontalAlignment="Left" Height="28" Margin="170,440,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" Grid.RowSpan="2" />
         <!-- Buttons -->
-        <Button Name="request_button" Content="Request" HorizontalAlignment="Left" Margin="170,480,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsEnabled="False" IsDefault="True" />
-        <Button Name="cancel_button" Content="Cancel" HorizontalAlignment="Left" Margin="272,480,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" Click="reset_clicked" IsCancel="True" >
+        <Button Name="request_button" Content="Request" HorizontalAlignment="Left" Margin="170,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsEnabled="False" IsDefault="True" />
+        <Button Name="cancel_button" Content="Cancel" HorizontalAlignment="Left" Margin="272,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsCancel="True" >
             <Button.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>

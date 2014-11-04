@@ -12,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tracker.Forms;
 
-namespace Tracker
+namespace Tracker.Forms
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login_Window : Window
     {
-        public MainWindow()
+        public Login_Window()
         {
             InitializeComponent();
         }
@@ -88,23 +89,23 @@ namespace Tracker
             
             if (nameFromDB==username_val.Text)
             {
-                if (statusFromDB == 'a')
+                if (statusFromDB == "a")
                 {
-                  'login()
+                  //login()
                 }
-                else if (statusFromDB == 'd')
+                else if (statusFromDB == "d")
                 {
-                  'dont login
+                  //dont login
                   MessageBox.Show("Your account is deactivated, please contact your manager");
                 }
-                else if (statusFromDB == 'p')
+                else if (statusFromDB == "p")
                 {
-                  'dont login
+                  //dont login
                   MessageBox.Show("Your account is not yer activated. Please contact your manager");
                 }
-                else if (statusFromDB == 'r')
+                else if (statusFromDB == "r")
                 {
-                  'dont login
+                  //dont login
                   MessageBox.Show("Your request is rejected. Please contact your manager");
                 }
             }
@@ -112,6 +113,13 @@ namespace Tracker
             {
                 MessageBox.Show("Failed to Log in. Please provice your correct username and password.\n Please request for access if you dont have and account yet.");
             }
+        }
+
+        public void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Hide();
+            Login_Request_Window lrequest = new Login_Request_Window();
+            lrequest.Show();
         }
     }
 }
