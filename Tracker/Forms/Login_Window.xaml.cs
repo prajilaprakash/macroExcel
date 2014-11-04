@@ -21,6 +21,7 @@ namespace Tracker.Forms
     /// </summary>
     public partial class Login_Window : Window
     {
+
         public Login_Window()
         {
             InitializeComponent();
@@ -60,11 +61,6 @@ namespace Tracker.Forms
             }  
         }
 
-        private void cancel_toReset(object sender, DataTransferEventArgs e)
-        {
-
-        }
-
         private void username_val_TextChanged(object sender, TextChangedEventArgs e)
         {
             cancel_toReset();
@@ -84,29 +80,30 @@ namespace Tracker.Forms
             
             dbmodule dbm = new dbmodule();
             
-            statusFromDB = dbm.getSingleValue("SELECT user_status FROM tc_user_info WHERE user_name = '" + username_val.Text + "'");
+            statusFromDB = dbm.getSingleValue("SELECT user_status FROM tc_user_details WHERE user_name = '" + username_val.Text + "'");
             nameFromDB = dbm.getSingleValue("SELECT user_name FROM tc_user_info WHERE user_name = '" + username_val.Text + "' AND user_pass = '" + password_val.Password.ToString() + "'");
             
             if (nameFromDB==username_val.Text)
             {
                 if (statusFromDB == "a")
                 {
-                  //login()
+                    //login()
+                    MessageBox.Show("Logged in");
                 }
                 else if (statusFromDB == "d")
                 {
-                  //dont login
-                  MessageBox.Show("Your account is deactivated, please contact your manager");
+                    //dont login
+                    MessageBox.Show("Your account is deactivated, please contact your manager");
                 }
                 else if (statusFromDB == "p")
                 {
-                  //dont login
-                  MessageBox.Show("Your account is not yer activated. Please contact your manager");
+                    //dont login
+                    MessageBox.Show("Your account is not yer activated. Please contact your manager");
                 }
                 else if (statusFromDB == "r")
                 {
-                  //dont login
-                  MessageBox.Show("Your request is rejected. Please contact your manager");
+                    //dont login
+                    MessageBox.Show("Your request is rejected. Please contact your manager");
                 }
             }
             else
@@ -117,9 +114,11 @@ namespace Tracker.Forms
 
         public void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            this.Hide();
-            Login_Request_Window lrequest = new Login_Request_Window();
-            lrequest.Show();
+            //Login_Request_Window lr = new Login_Request_Window();
+
+            Login_Request_Window lr = new Login_Request_Window();
+            lr.Show();
+            //this.Close();
         }
     }
 }

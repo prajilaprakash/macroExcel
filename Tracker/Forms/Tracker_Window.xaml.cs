@@ -11,31 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Tracker.Forms;
 
 namespace Tracker.Forms
 {
     /// <summary>
-    /// Interaction logic for Login_Request_Window.xaml
+    /// Interaction logic for Tracker_Window.xaml
     /// </summary>
-    public partial class Login_Request_Window : Window
+    public partial class Tracker_Window : Window
     {
-        public Login_Request_Window()
+        public Tracker_Window()
         {
             InitializeComponent();
         }
-
-        private void login_request_window_Closed(object sender, EventArgs e)
-        {
-            //Login_Window lw = new Login_Window();
-            //Login_Window.login_win.Show();
-        }
-
-        private void request_button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
-
-
 }

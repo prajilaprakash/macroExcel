@@ -104,8 +104,15 @@
       <DependentUpon>Login_Window.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Forms\Tracker_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Tracker_Window.xaml.cs">
+      <DependentUpon>Tracker_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modules\dbmodule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -154,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Development Documentation\Database_Details.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Development Documentation\Reference QUeries.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

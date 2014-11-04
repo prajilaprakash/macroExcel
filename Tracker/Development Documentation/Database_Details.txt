@@ -18,7 +18,7 @@ TABLE "tc_user_details":
 					Holds the first name of the user
 	last_name	:	charecter (32), not null
 					holds the last name of the user
-	designation	:	charecter (16), not null
+	designation	:	charecter (32), not null
 					holds the current designation of the user,
 					should be an existing value in "tc_app_params""
 	user_email	:	charecter (48), not null, unique

@@ -35,7 +35,7 @@
         <PasswordBox Name="r_password_val" HorizontalAlignment="Left" Height="28" Margin="170,400,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16"  />
         <PasswordBox Name="r_confirm_val" HorizontalAlignment="Left" Height="28" Margin="170,440,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" Grid.RowSpan="2" />
         <!-- Buttons -->
-        <Button Name="request_button" Content="Request" HorizontalAlignment="Left" Margin="170,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsEnabled="False" IsDefault="True" />
+        <Button Name="request_button" Content="Request" HorizontalAlignment="Left" Margin="170,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsEnabled="False" IsDefault="True" Click="request_button_Click" />
         <Button Name="cancel_button" Content="Cancel" HorizontalAlignment="Left" Margin="272,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsCancel="True" >
             <Button.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
