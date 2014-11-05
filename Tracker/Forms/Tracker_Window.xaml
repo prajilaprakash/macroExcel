@@ -1,9 +1,10 @@
 ﻿<Window x:Class="Tracker.Forms.Tracker_Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Tracker_Window" Height="508.696" Width="873.134">
+        Title="Tracker Window" Height="508.696" Width="873.134"
+        Name="tracker_window">
     <Grid>
-        <Menu HorizontalAlignment="Left" Height="100" Margin="93,45,0,0" VerticalAlignment="Top" Width="100">
+        <Menu HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100">
             <MenuItem Header="File">
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
             </MenuItem>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 
 namespace Tracker
@@ -40,6 +41,46 @@ namespace Tracker
                 connection.Close();
             }
             return name;
+        }
+
+        public void fillComboBox(System.Windows.Controls.ComboBox combobox,String field_name, String query)
+        {
+            MySqlConnectionStringBuilder conString = new MySqlConnectionStringBuilder();
+            conString.Server = "localhost";
+            conString.Database = "tracker";
+            conString.UserID = "user";
+            conString.Password = "";
+            MySqlConnection connection = new MySqlConnection(conString.ToString());
+            //MySqlDataReader dr;
+            //MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(query, connection);
+            DataSet ds = new DataSet();
+
+            try
+            {
+                connection.Open();
+                da.Fill(ds);
+
+                combobox.ItemsSource = ds.Tables[0].DefaultView;
+                combobox.DisplayMemberPath = ds.Tables[0].Columns[field_name].ToString();
+                combobox.SelectedValuePath = ds.Tables[0].Columns[field_name].ToString();
+                //dr = cmd.ExecuteReader();
+                //dr.Read();
+                //combobox.Items.Add("--select--");
+                //for (int i = 0; i < 1; i++)
+                //{
+                //   combobox.Items.Add(dr.GetString(i));
+                //}
+                connection.Close();
+            }
+            catch (MySqlException em)
+            {
+                Console.WriteLine(em.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

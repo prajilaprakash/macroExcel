@@ -163,7 +163,7 @@
     <Resource Include="Development Documentation\Database_Details.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Development Documentation\Reference QUeries.txt" />
+    <Resource Include="Development Documentation\Reference Queries.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

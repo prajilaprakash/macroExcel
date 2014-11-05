@@ -1,1 +1,1 @@
-﻿INSERT INTO `tracker`.`tc_user_details` (`user_name`, `first_name`, `last_name`, `designation`, `user_email`, `user_status`, `user_team`) VALUES ('nikhil', 'Nikhil', 'Das', 'Engineer', 'nikhil.dastp@gmail.com', 'a', 'SIT');
+﻿INSERT INTO `tracker`.`tc_user_details` (`user_name`, `first_name`, `last_name`, `designation`, `user_email`, `user_status`, `user_team`) VALUES ('nikhil', 'Nikhil', 'Das', 'Test Engineer', 'nikhil.dastp@gmail.com', 'a', 'SIT');

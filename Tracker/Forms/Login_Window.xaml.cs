@@ -88,7 +88,10 @@ namespace Tracker.Forms
                 if (statusFromDB == "a")
                 {
                     //login()
-                    MessageBox.Show("Logged in");
+                    //MessageBox.Show("Logged in");
+                    Tracker_Window tw = new Tracker_Window();
+                    tw.Show();
+                    login_window.Close();
                 }
                 else if (statusFromDB == "d")
                 {
@@ -118,7 +121,7 @@ namespace Tracker.Forms
 
             Login_Request_Window lr = new Login_Request_Window();
             lr.Show();
-            //this.Close();
+            login_window.Close();
         }
     }
 }
