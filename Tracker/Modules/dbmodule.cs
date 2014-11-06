@@ -82,5 +82,34 @@ namespace Tracker
                 connection.Close();
             }
         }
+
+        public int insertToDB(String query)
+        {
+            MySqlConnectionStringBuilder conString = new MySqlConnectionStringBuilder();
+
+            conString.Server = "localhost";
+            conString.UserID = "user";
+            conString.Password = "";
+            conString.Database = "tracker";
+
+            MySqlConnection con = new MySqlConnection(conString.ToString());
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+            int y = 0;
+
+            try
+            {
+                con.Open();
+                y = cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+
+            }
+            return y;
+        }
+
     }
 }

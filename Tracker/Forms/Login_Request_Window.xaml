@@ -22,18 +22,18 @@
 
 
         <!-- Details fields -->
-        <TextBox Name="r_firstname_val" HorizontalAlignment="Left" Height="28" Margin="170,100,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please enter your First Name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1"/>
-        <TextBox Name="r_lastname_val" HorizontalAlignment="Left" Height="28" Margin="170,140,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please provide your team name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1" />
-        <TextBox Name="r_email_val" HorizontalAlignment="Left" Height="28" Margin="170,180,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please provide the username of the employee you are reporting to" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLines="1" />
+        <TextBox Name="r_firstname_val" HorizontalAlignment="Left" Height="28" Margin="170,100,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please enter your First Name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1" TextChanged="TextChanged"/>
+        <TextBox Name="r_lastname_val" HorizontalAlignment="Left" Height="28" Margin="170,140,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please provide your team name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1" TextChanged="TextChanged" />
+        <TextBox Name="r_email_val" HorizontalAlignment="Left" Height="28" Margin="170,180,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please provide the username of the employee you are reporting to" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLines="1" TextChanged="TextChanged" />
 
-        <ComboBox Name="r_designation_val" HorizontalAlignment="Left" Margin="170,220,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18"/>
-        <ComboBox Name="r_team_val" HorizontalAlignment="Left" Margin="170,260,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18"/>
-        <ComboBox Name="r_ro_val" HorizontalAlignment="Left" Margin="170,300,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18" DropDownClosed="r_ro_val_DropDownClosed" />
+        <ComboBox Name="r_designation_val" HorizontalAlignment="Left" Margin="170,220,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18" DropDownClosed="DropDownClosed"/>
+        <ComboBox Name="r_team_val" HorizontalAlignment="Left" Margin="170,260,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18" DropDownClosed="DropDownClosed"/>
+        <ComboBox Name="r_ro_val" HorizontalAlignment="Left" Margin="170,300,0,0" VerticalAlignment="Top" Height="28" Width="200" FontSize="18" DropDownClosed="DropDownClosed" />
         <!-- Username Field -->
-        <TextBox Name="r_username_val" HorizontalAlignment="Left" Height="28" Margin="170,360,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please enter your First Name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1"/>
+        <TextBox Name="r_username_val" HorizontalAlignment="Left" Height="28" Margin="170,360,0,0" VerticalAlignment="Top" Width="200" UndoLimit="4" ClipToBounds="True" ToolTip="Please enter your First Name" AllowDrop="False" TabIndex="32" FontSize="18" FontStretch="Expanded" MaxLength="32" MaxLines="1" TextChanged="TextChanged"/>
         <!-- Pawword Fileds -->
-        <PasswordBox Name="r_password_val" HorizontalAlignment="Left" Height="28" Margin="170,400,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16"  />
-        <PasswordBox Name="r_confirm_val" HorizontalAlignment="Left" Height="28" Margin="170,440,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" Grid.RowSpan="2" />
+        <PasswordBox Name="r_password_val" HorizontalAlignment="Left" Height="28" Margin="170,400,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" PasswordChanged="PasswordChanged" />
+        <PasswordBox Name="r_confirm_val" HorizontalAlignment="Left" Height="28" Margin="170,440,0,0" VerticalAlignment="Top" Width="201" ClipToBounds="True" ToolTip="Please enter your password" AllowDrop="False" TabIndex="16" FontSize="18" MaxLength="16" Grid.RowSpan="2" PasswordChanged="PasswordChanged" />
         <!-- Buttons -->
         <Button Name="request_button" Content="Request" HorizontalAlignment="Left" Margin="170,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsEnabled="False" IsDefault="True" Click="request_button_Click" />
         <Button Name="cancel_button" Content="Cancel" HorizontalAlignment="Left" Margin="272,473,0,0" VerticalAlignment="Top" Width="98" Height="32" FontSize="16" Background="#FFFDB800" BorderThickness="0" IsCancel="True" Click="cancel_button_Click" >

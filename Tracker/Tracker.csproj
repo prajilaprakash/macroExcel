@@ -97,6 +97,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Development Documentation\Code Snippets\sendEmail.cs" />
     <Compile Include="Forms\Login_Request_Window.xaml.cs">
       <DependentUpon>Login_Request_Window.xaml</DependentUpon>
     </Compile>
@@ -160,10 +161,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Development Documentation\Database_Details.txt" />
+    <Resource Include="Development Documentation\Database\Database_Details.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Development Documentation\Reference Queries.txt" />
+    <Resource Include="Development Documentation\Database\Reference Queries.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
