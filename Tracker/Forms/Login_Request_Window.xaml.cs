@@ -33,21 +33,29 @@ namespace Tracker.Forms
 
         private void request_button_Click(object sender, RoutedEventArgs e)
         {
-            string userinfo;
-            string userdetails;
-            if (r_password_val.Password==r_confirm_val.Password)
+            dbmodule dbm = new dbmodule();
+            if (dbm.isServerAvailable() == false)
             {
-                userinfo = "INSERT INTO `tracker`.`tc_user_info` (`user_name`, `user_pass`) VALUES ('"+ r_username_val.Text +"', '" + (String)r_password_val.Password +"');";
-                userdetails = "INSERT INTO `tracker`.`tc_user_details` (`user_name`, `first_name`, `last_name`, `designation`, `user_email`, `user_status`, `user_team`) VALUES ('"+r_username_val.Text+"', '" +r_firstname_val.Text+ "', '" + r_lastname_val.Text + "', '" + r_designation_val.Text + "', '" + r_email_val.Text + "', 'p', ' " + r_team_val.Text + "');";
-                dbmodule mod = new dbmodule();
-                mod.insertToDB(userinfo);
-                mod.insertToDB(userdetails);
-                MessageBox.Show("requested successfully");
-                reset_form();
+                MessageBox.Show("Not able to connect to server");
             }
             else
             {
-                MessageBox.Show("Passwords doesnt match, please reneter your password");
+                string userinfo;
+                string userdetails;
+                if (r_password_val.Password == r_confirm_val.Password)
+                {
+                    userinfo = "INSERT INTO `tracker`.`tc_user_info` (`user_name`, `user_pass`) VALUES ('" + r_username_val.Text + "', '" + (String)r_password_val.Password + "');";
+                    userdetails = "INSERT INTO `tracker`.`tc_user_details` (`user_name`, `first_name`, `last_name`, `designation`, `user_email`, `user_status`, `user_team`) VALUES ('" + r_username_val.Text + "', '" + r_firstname_val.Text + "', '" + r_lastname_val.Text + "', '" + r_designation_val.Text + "', '" + r_email_val.Text + "', 'p', ' " + r_team_val.Text + "');";
+                    dbmodule mod = new dbmodule();
+                    mod.insertToDB(userinfo);
+                    mod.insertToDB(userdetails);
+                    MessageBox.Show("requested successfully");
+                    reset_form();
+                }
+                else
+                {
+                    MessageBox.Show("Passwords doesnt match, please reneter your password");
+                }
             }
         }
 
@@ -82,8 +90,17 @@ namespace Tracker.Forms
 
         private void login_request_window_Loaded(object sender, RoutedEventArgs e)
         {
-            fillAllDropDowns();
-            ro_name.Content = "";
+            dbmodule dbm = new dbmodule();
+
+            if (dbm.isServerAvailable() == false)
+            {
+                MessageBox.Show("Not able to connect to server");
+            }
+            else
+            {
+                fillAllDropDowns();
+                ro_name.Content = "";
+            }
         }
 
         private void DropDownClosed(object sender, EventArgs e)

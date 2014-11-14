@@ -12,7 +12,35 @@ namespace Tracker
 {
     class dbmodule
     {
-        public String getSingleValue(String query)
+        public bool isServerAvailable()
+        {
+            MySqlConnectionStringBuilder conString = new MySqlConnectionStringBuilder();
+            conString.Server = "localhost";
+            conString.Database = "tracker";
+            conString.UserID = "user";
+            conString.Password = "";
+            MySqlConnection connection = new MySqlConnection(conString.ToString());
+
+            try
+            {
+                connection.Open();
+
+                if (connection.State == ConnectionState.Open)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ed)
+            {
+                return false;
+            }
+        }
+
+        public string getSingleValue(string query)
         {
             String name = "";
             MySqlConnectionStringBuilder conString = new MySqlConnectionStringBuilder();

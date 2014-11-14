@@ -115,6 +115,7 @@
       <DependentUpon>Tracker_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\dbmodule.cs" />
+    <Compile Include="Modules\localDBmodule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
