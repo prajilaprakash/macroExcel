@@ -98,6 +98,7 @@ namespace Tracker.Forms
                         //MessageBox.Show("Logged in");
                         Tracker_Window tw = new Tracker_Window();
                         tw.Show();
+                        userControls.loggedinUser = username_val.Text;
                         login_window.Close();
                     }
                     else if (statusFromDB == "d")

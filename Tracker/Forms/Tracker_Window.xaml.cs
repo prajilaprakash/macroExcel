@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Tracker.Forms
+namespace Tracker
 {
     /// <summary>
     /// Interaction logic for Tracker_Window.xaml
@@ -22,6 +22,33 @@ namespace Tracker.Forms
         public Tracker_Window()
         {
             InitializeComponent();
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            string sMessageBoxText = "Do you want to Logout?";
+            string sCaption = "Tracker - Logout";
+
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Exclamation;
+
+            MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+
+            switch (rsltMessageBox)
+            {
+                case MessageBoxResult.Yes:
+                    Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    //Do nothing
+                    break;
+            }
+        }
+
+        private void show_ResourceWindow(object sender, RoutedEventArgs e)
+        {
+            Tracker.UserAccessControl uac = new UserAccessControl();
+            uac.Show();
         }
     }
 }

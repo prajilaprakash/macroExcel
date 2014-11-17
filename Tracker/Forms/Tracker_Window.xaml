@@ -1,15 +1,17 @@
-﻿<Window x:Class="Tracker.Forms.Tracker_Window"
+﻿<Window x:Class="Tracker.Tracker_Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Tracker Window" Height="508.696" Width="873.134"
         Name="tracker_window">
     <Grid>
-        <Menu HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100">
-            <MenuItem Header="File">
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
+        <Menu HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="865">
+            <MenuItem Header="File" Height="30" Click="Logout_Click">
+                <MenuItem Header="Logout" HorizontalAlignment="Left" Width="140" Height="30"/>
             </MenuItem>
             <MenuItem Header="Admin" >
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Request" HorizontalAlignment="Left" Width="140" Height="30">
+                    <MenuItem Header="Tracker Access Requests" HorizontalAlignment="Left" Height="30" Click="show_ResourceWindow"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

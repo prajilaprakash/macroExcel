@@ -45,12 +45,21 @@ namespace Tracker.Forms
                 if (r_password_val.Password == r_confirm_val.Password)
                 {
                     userinfo = "INSERT INTO `tracker`.`tc_user_info` (`user_name`, `user_pass`) VALUES ('" + r_username_val.Text + "', '" + (String)r_password_val.Password + "');";
-                    userdetails = "INSERT INTO `tracker`.`tc_user_details` (`user_name`, `first_name`, `last_name`, `designation`, `user_email`, `user_status`, `user_team`) VALUES ('" + r_username_val.Text + "', '" + r_firstname_val.Text + "', '" + r_lastname_val.Text + "', '" + r_designation_val.Text + "', '" + r_email_val.Text + "', 'p', ' " + r_team_val.Text + "');";
+                    userdetails = "INSERT INTO `tracker`.`tc_user_details` (`user_name`, `first_name`, `last_name`, `designation`, `user_email`, `user_status`, `user_ro`, `user_team`) VALUES ('" + r_username_val.Text + "', '" + r_firstname_val.Text + "', '" + r_lastname_val.Text + "', '" + r_designation_val.Text + "', '" + r_email_val.Text + "', 'p', '" + r_ro_val.Text + "','" + r_team_val.Text + "');";
+                    //MessageBox.Show(userdetails);
                     dbmodule mod = new dbmodule();
-                    mod.insertToDB(userinfo);
-                    mod.insertToDB(userdetails);
-                    MessageBox.Show("requested successfully");
-                    reset_form();
+                    try
+                    {
+                        mod.insertToDB(userinfo);
+                        mod.insertToDB(userdetails);
+                        MessageBox.Show("requested successfully");
+                        Console.WriteLine(userdetails);
+                        reset_form();
+                    }
+                    catch (Exception ed)
+                    {
+                        MessageBox.Show(ed.ToString());
+                    }                    
                 }
                 else
                 {

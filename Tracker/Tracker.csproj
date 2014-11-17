@@ -68,6 +68,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -105,17 +107,25 @@
       <DependentUpon>Login_Window.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Forms\Tracker Pop Up\UserAccessControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\Tracker_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Tracker Pop Up\UserAccessControl.xaml.cs">
+      <DependentUpon>UserAccessControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Tracker_Window.xaml.cs">
       <DependentUpon>Tracker_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\dbmodule.cs" />
     <Compile Include="Modules\localDBmodule.cs" />
+    <Compile Include="Modules\userControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
