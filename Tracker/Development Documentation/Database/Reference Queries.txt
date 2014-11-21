@@ -9,3 +9,294 @@ INSERT INTO `tracker`.`tc_user_info` (`user_name`, `user_pass`) VALUES ('sadmin'
 
 https://github.com/nikhildas/Tracker
 Prajil??
+
+
+Private Sub CommandButton1_Click()
+
+'###### Declaring objects ######
+   
+   Dim wrdApp As Word.Application
+
+   Dim wrdDoc As Word.Document
+
+   Dim objFolder As Object
+
+   Dim objFile As Object
+
+   Dim fsysObj As Object
+
+   
+
+'###### Declaring datatypes ######
+
+   Dim i As Integer
+
+   Dim j As Integer
+
+   Dim limit As Integer
+
+   Dim screenshotlocation As String
+
+   Dim outputlocation As String
+
+   Dim templocation As String
+
+       
+    screenshotlocation = Cells(2, 2).Value
+ 
+    outputlocation = Cells(3, 2).Value
+    
+    templocation = screenshotlocation & "\Temp"
+
+      
+
+'###### Creating new fyle system object for file operation ######
+
+   Set fsysObj = CreateObject("Scripting.FileSystemObject")
+
+   
+
+'###### Getting screenshot location ######
+
+   Set objFolder = fsysObj.GetFolder(screenshotlocation)
+
+   
+
+'###### Creating a temporary folder if it doesnt exists and copy screenshots to that ######
+
+   If (fsysObj.FolderExists(templocation)) Then
+
+'###### Deleted Temp Folder ######
+
+       fsysObj.DeleteFolder (templocation)
+
+   Else
+
+'###### Create Temp folder ######
+
+       fsysObj.CreateFolder templocation
+
+   End If
+
+   
+
+'###### Copy every file from original location to ######
+
+   For Each objFile In objFolder.Files
+
+      fsysObj.CopyFile objFile.Path, templocation & "\"
+
+   Next objFile
+
+    
+
+   Set objFolder = fsysObj.GetFolder(templocation)
+
+   
+   rr = 0
+   For i = 6 To 100
+       
+
+       Set wrdApp = CreateObject("Word.Application")
+
+       Set wrdDoc = wrdApp.Documents.Add
+
+       If Cells(i, 1).Value = "" Then
+       
+           wrdDoc.Close
+
+           wrdApp.Quit
+
+           Exit For
+           
+           ElseIf Cells(i, 3).Value = "Skip" Then
+           'Do nothing
+           Call General_CloseProcess("WINWORD.EXE")
+         Else
+
+           j = 0
+
+           limit = Cells(i, 2).Value
+
+           wrdDoc.SaveAs (outputlocation & Cells(i, 1).Value & ".docx")
+           
+           For Each objFile In objFolder.Files
+
+               If j = limit Then
+
+                   Exit For
+
+               Else
+
+                   j = j + 1
+
+                   
+                   wrdApp.Selection.TypeText (objFile.Name)
+            
+                   wrdApp.Selection.TypeParagraph
+                
+                   wrdApp.Selection.InlineShapes.AddPicture (objFile.Path)
+
+                   wrdApp.Selection.EndKey Unit:=wdStory
+
+                   If j = limit Then
+
+                       'Do Nothing
+
+                   Else
+
+                       wrdApp.Selection.TypeParagraph
+
+                   End If
+
+                   
+
+                   fsysObj.DeleteFile (objFile.Path)
+
+               End If
+          
+           Next objFile
+
+        
+'###### Save Word doc and quits word instance ######
+
+           wrdDoc.SaveAs (outputlocation & Cells(i, 1).Value & ".docx")
+
+           wrdDoc.Close
+
+           wrdApp.Quit
+
+           Call General_CloseProcess("WINWORD.EXE")
+ 
+       End If
+       rr = rr + 1
+   
+   Next i
+
+      
+
+   fsysObj.DeleteFolder (templocation)
+
+  MsgBox "Word File created successfully for " & rr & " Test Cases"
+
+'###### Destroys every declared objects ######
+
+   Set wrdDoc = Nothing
+
+   Set wrdApp = Nothing
+
+   Set objFolder = Nothing
+
+   Set fsysObj = Nothing
+
+   Set objFile = Nothing
+
+   
+End Sub
+' Close Tem File for each word created
+Public Function General_CloseProcess(strProgramName)
+   Dim objshell
+   Set objshell = CreateObject("WScript.Shell")
+   objshell.Run "TASKKILL /F /IM " & strProgramName
+   Set objshell = Nothing
+   Application.Wait Now + TimeValue("00:00:3")
+End Function
+
+'########################################################################
+'
+'Private Sub CommandButton2_Click()
+   'Dim objFile As Object
+
+   'Dim fsysObj As Object
+
+   
+
+   'Dim screenshotlocation As String
+
+   
+
+   'screenshotlocation = "D:\Mara\Raw_2"
+
+   
+
+   'Creating new fyle system object for file operation
+
+   'Set fsysObj = CreateObject("Scripting.FileSystemObject")
+
+   
+
+   'Getting screenshot location
+
+   'Set objFolder = fsysObj.GetFolder(screenshotlocation)
+
+   
+
+   'For Each objFile In objFolder.Files
+     ' fsysObj.DeleteFile (objFile.Path)
+   'Next objFile
+
+'End Sub
+'####################################################################################
+
+'###### Capture Strat and Stop time for the execution of test case in Device ######
+
+Private Sub Timer_Button_Click()
+If (Timer_Button.Caption = "Stop") Then
+        Call setStopTime
+        Timer_Button.Caption = "Start"
+        'MsgBox (Cells(4, 1).Value)
+    ElseIf (Timer_Button.Caption = "Start") Then
+        Call setStartTime
+        Timer_Button.Caption = "Stop"
+    End If
+End Sub
+
+Private Sub setStopTime()
+        Dim i
+    For i = 6 To 100
+        If (Cells(i, 1).Value = "") Then
+            'Do Nothin
+        Else
+            If (Cells(i, 6).Value = "") Then
+                Cells(i, 6).Value = Now
+                Exit For
+            Else
+                'Do nothing
+            End If
+        End If
+    Next i
+End Sub
+
+Private Sub setStartTime()
+        Dim i
+    For i = 6 To 100
+        If (Cells(i, 1).Value = "") Then
+            'Do Nothin
+        Else
+            If (Cells(i, 5).Value = "") Then
+                Cells(i, 5).Value = Now
+                Exit For
+            Else
+                'Do nothing
+            End If
+        End If
+    Next i
+End Sub
+
+Sub CreateFolder()
+
+Dim fs As Object
+Dim fname As Object
+Dim fname1 As String
+Set fs = CreateObject("Scripting.FileSystemObject")
+fname1 = InputBox("Enter the path of the folder to check :")
+fname1 = fname1 & Format(Now, "MMM-d-yyyy")
+If fs.FolderExists(fname1) Then
+MsgBox "Folder Exists!"
+Else
+Set fname = fs.CreateFolder(fname1)
+Set fname = Nothing
+Set fs = Nothing
+End If
+End Sub
+
