@@ -300,27 +300,8 @@ Set fs = Nothing
 End If
 End Sub
 
-QC:
-'###### "Upload All Test Cases" ######
-        
-          TCCount = 0
-        ' If Sheet1.Cells(1, 1) = 1 Then
-            Set testF = My_Test_Set.TSTestFactory
-            Set aFilter = testF.Filter
-            Set lst = testF.NewList(aFilter.Text)
-            For i = 1 To lst.Count
-                rr = 6
-                While Sheet1.Cells(rr, 1) <> ""
-                    If Sheet1.Cells(rr, 1) = lst(i).Name Then
-                        TCCount = TCCount + 1
-                        If Sheet1.Cells(rr, 3) <> "Skip" Then
-                            Set runF = lst(i).RunFactory
-                            Set aFilter = runF.Filter
-                            runName = "Fast_Run_" & Day(Now()) & "-" & Month(Now()) & "_" & Hour(Time) & "-" & Minute(Time) & "-" & Second(Time)
-                            Set tstRun = runF.AddItem(runName)
-                            tstRun.Name = runName
-                            tstRun.status = Sheet1.Cells(rr, 3)
-                            Call GetDesignSteps(aFilter, tstRun, runName, Sheet1.Cells(rr, 3))
+QC Attachment Part:
+
                              
 '###### New Code Starts for Attachements ######
 
