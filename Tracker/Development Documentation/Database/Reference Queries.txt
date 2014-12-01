@@ -307,10 +307,15 @@ QC Attachment Part:
 
                             atfilearray = Split(Sheet1.Cells(rr, 4), ",")
                             For at = 0 To UBound(atfilearray)
-                                AttFolderPath = ThisWorkbook.Path & "\Attachements"
+                                '*****GIVE CELL ADDRESS*****
+                                'AttFolderPath = ThisWorkbook.Path & "\Attachements"
+                                AttFolderPath = Cells(r,c).Value
+                                
                                 AttFileName = Trim(atfilearray(at))
                                 Set fs = CreateObject("Scripting.FileSystemObject")
-                                If fs.FileExists(AttFolderPath & "\" & AttFileName) Then
+                                
+                                'If fs.FileExists(AttFolderPath & "\" & AttFileName) Then
+                                If fs.FileExists(AttFolderPath & AttFileName) Then
                                     Set attachFact = lst(i).Attachments
                                     Set attachObj = attachFact.AddItem(AttFileName)
                                     attachObj.Description = "Test Run Step Attachment"
