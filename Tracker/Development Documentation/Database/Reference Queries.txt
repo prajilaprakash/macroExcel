@@ -328,3 +328,27 @@ QC Attachment Part:
                                     MsgBox "Attachement file : """ & AttFileName & """ does NOT exist in the Attachements folder." & Chr(13) & "This file will not be attached with this Test Run of """ & lst(i).Name & """ Test Case"
                                 End If
                             Next
+                            
+                            
+                            
+                            
+                            
+                            
+                     
+'***********************CLEAR BUTTON***********************
+Private Sub ClearButton_Click()
+    Dim rowNum As Integer
+    Dim colNum As Integer
+    Dim i As Integer
+    Dim j As Integer
+    
+    rowNum = 6
+    colNum = 6
+    
+    For i = rowNum To 100
+        For j = 1 To colNum
+            Cells(i, j).Value = ""
+        Next j
+    Next i
+    
+End Sub
