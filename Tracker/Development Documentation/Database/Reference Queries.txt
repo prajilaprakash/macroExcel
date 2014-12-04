@@ -352,3 +352,7 @@ Private Sub ClearButton_Click()
     Next i
     
 End Sub
+
+
+I was always excited to do something creative..but never knew that it would end up in this..
+And as someone said...."Happiness is Handmade..."
